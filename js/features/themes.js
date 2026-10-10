@@ -13,7 +13,7 @@ const THEMES = [
   ["party", "Party", "#ff3bd8", "#2a0750"],
   ["focus", "Focus", "#d4a373", "#1c1814"],
   ["nostalgia", "Nostalgia", "#a4442b", "#f1e4cc"],
-  ["bhakti", "Bhakti mode", "#ffb21e", "#3b1a0a"]
+  //["bhakti", "Bhakti mode", "#ffb21e", "#3b1a0a"]
 ];
 
 function setTheme(t, store = true) {
