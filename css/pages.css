@@ -1,0 +1,63 @@
+/* Song, artist and playlist page headers and text. */
+.ph {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.ph .art {
+  width: 96px;
+  height: 96px;
+  border-radius: 8px;
+  flex: none;
+}
+
+.hero {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.hero .art {
+  width: 180px;
+  height: 180px;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .35);
+  flex: none;
+}
+
+.hero .art.round {
+  border-radius: 50%;
+}
+
+.hero h1 {
+  font-size: 40px;
+  margin: 0;
+}
+
+.meta {
+  color: var(--mute);
+}
+
+.kick {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 700;
+  color: var(--mute);
+  font-size: 12px;
+}
+
+.about {
+  max-width: 640px;
+  color: var(--mute);
+}
+
+.note {
+  display: block;
+  color: var(--mute);
+  font-size: 13px;
+  margin: 6px 0 12px;
+}

@@ -1,0 +1,223 @@
+/* Home page tiles: quick tiles, cards, side-scrolling rows and "See all". */
+.quick {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.quick button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(127, 127, 127, .18);
+  overflow: hidden;
+  text-align: left;
+  font-weight: 700;
+  padding-right: 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  transition: background .18s, transform .18s;
+}
+
+.quick button:hover {
+  background: rgba(127, 127, 127, .32);
+}
+
+.quick .art {
+  width: 56px;
+  height: 56px;
+  flex: none;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--raise);
+  text-align: left;
+  position: relative;
+  display: block;
+  width: 100%;
+  box-shadow: var(--shadow, none);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 12px 14px;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.card:hover {
+  filter: brightness(1.12);
+}
+
+.card .art {
+  aspect-ratio: 1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .35);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  transition: transform .25s ease;
+}
+
+.card b {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.card span {
+  color: var(--mute);
+  font-size: 13px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card .art.round {
+  border-radius: 50%;
+}
+
+.sec {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.hrow {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  margin: 0 calc(var(--hp, 24px)*-1);
+  padding: 0 var(--hp, 24px) 12px;
+  scrollbar-width: thin;
+  padding-top: 8px;
+  padding-bottom: 22px;
+  margin-top: -8px;
+  margin-bottom: -10px;
+}
+
+.hrow .card {
+  flex: 0 0 160px;
+  width: 160px;
+  scroll-snap-align: start;
+}
+
+.seeall-round {
+  flex: none;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.seeall-round span {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--raise);
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  line-height: 1;
+  box-shadow: var(--shadow, none);
+  transition: transform .15s, background .15s, color .15s;
+}
+
+.seeall-round:hover span,
+.seeall-round:focus-visible span {
+  background: var(--accent);
+  color: var(--bg);
+  transform: scale(1.08);
+}
+
+.arrs {
+  display: flex;
+  gap: 6px;
+}
+
+.arr {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--raise);
+  font-size: 12px;
+  line-height: 1;
+}
+
+.arr:hover {
+  filter: brightness(1.2);
+}
+
+@media (hover: none) {
+  .arrs {
+    display: none;
+  }
+}
+
+.card:active {
+  transform: scale(.98);
+}
+
+.card[data-id] .art,
+.card[data-rid] .art {
+  position: relative;
+}
+
+.card[data-id] .art::after,
+.card[data-rid] .art::after {
+  content: "\f04b";
+  font-family: var(--fa-font);
+  font-weight: 900;
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 40px;
+  height: 40px;
+  padding-left: 2px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .2s ease, transform .2s ease;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .4);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-3px);
+    filter: none;
+    box-shadow: 0 10px 22px -10px rgba(0, 0, 0, .55);
+    background: color-mix(in srgb, var(--raise) 88%, var(--text));
+  }
+
+  .card:hover .art {
+    transform: scale(1.03);
+  }
+
+  .card:hover .art::after,
+  .card:focus-visible .art::after {
+    opacity: 1;
+    transform: none;
+  }
+
+  .quick button:hover {
+    transform: translateY(-2px);
+  }
+}

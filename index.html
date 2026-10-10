@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Wavelength – Music streaming</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#121212">
+  <link rel="icon" href="icon-192x192.png">
+  <link rel="apple-touch-icon" href="icon-192x192.png">
+
+  <!-- Font Awesome Free icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Styles. Keep this order: a later file can override an earlier one. -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/lists.css">
+  <link rel="stylesheet" href="css/cards.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/sliders.css">
+  <link rel="stylesheet" href="css/menus.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/banner.css">
+  <link rel="stylesheet" href="css/mini-player.css">
+  <link rel="stylesheet" href="css/full-player.css">
+  <link rel="stylesheet" href="css/effects.css">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/accessibility.css">
+</head>
+<body>
+  <!-- Sidebar (computers) -->
+  <aside>
+    <div class="logo"><i></i>Wavelength</div>
+    <nav>
+      <button class="on" data-v="home">Home</button>
+      <button data-v="search">Search</button>
+      <button data-v="lib">Your library</button>
+      <button data-v="liked">Liked songs</button>
+      <button data-v="recent">Recents</button>
+      <button data-v="dl">Downloads</button>
+    </nav>
+    <h4>Playlists</h4>
+    <button class="pl" id="addpl">
+      <span class="art" style="display:grid;place-items:center;background:var(--raise);font-size:20px"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+      <b>New playlist</b>
+    </button>
+    <div id="pls"></div>
+  </aside>
+
+  <!-- Main area: every page is drawn here by js/ui/render.js -->
+  <main id="main"></main>
+
+  <!-- Mini player -->
+  <footer id="mini" aria-label="Mini player">
+    <button class="mopen" id="mopen" aria-label="Open player" aria-haspopup="dialog">
+      <span class="art" id="mArt"></span>
+      <span class="mtxt">
+        <b id="mT">Nothing playing</b>
+        <small id="mA">Pick a track to start</small>
+      </span>
+    </button>
+    <button id="mlike" class="mbtn" disabled aria-label="Like" aria-pressed="false" title="Like"><i class="fa-regular fa-heart" aria-hidden="true"></i></button>
+    <button id="mplay" class="mbtn mplay" aria-label="Play" title="Play"><i class="fa-solid fa-play" aria-hidden="true"></i></button>
+    <div class="mprog"><i id="mprog"></i></div>
+  </footer>
+
+  <!-- Bottom tabs (phones) -->
+  <div id="tabs" role="navigation" aria-label="Main">
+    <button data-v="home"><span><i class="fa-solid fa-house" aria-hidden="true"></i></span>Home</button>
+    <button data-v="search"><span><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>Search</button>
+    <button data-v="lib"><span><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>Your library</button>
+    <button data-v="dl"><span><i class="fa-solid fa-download" aria-hidden="true"></i></span>Downloads</button>
+  </div>
+
+  <!-- Full-screen player -->
+  <section id="full" role="dialog" aria-modal="true" aria-label="Now playing">
+    <div class="fbg" id="fbg"></div>
+    <div class="fwrap">
+      <div class="fhead">
+        <button id="fclose" aria-label="Close player" title="Close"><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+        <div class="fctx">
+          <small>Playing from</small>
+          <b id="fctx">Wavelength</b>
+        </div>
+        <button id="fmore" data-more="0" aria-haspopup="menu" aria-expanded="false" aria-label="More options" title="More options"><i class="fa-solid fa-ellipsis" aria-hidden="true"></i></button>
+      </div>
+      <div class="fart art" id="npArt"></div>
+      <div class="fmeta">
+        <div>
+          <b id="npT">Nothing playing</b>
+          <small id="npA">Pick a track to start</small>
+        </div>
+        <button id="like" disabled aria-label="Like" aria-pressed="false" title="Like"><i class="fa-regular fa-heart" aria-hidden="true"></i></button>
+      </div>
+      <div class="bar">
+        <span id="cur">0:00</span>
+        <input type="range" id="seek" min="0" max="1000" step="1" value="0" aria-label="Seek">
+        <span id="tot">0:00</span>
+      </div>
+      <div class="fctl">
+        <button id="mode" title="Play mode" aria-label="Play mode"><span class="mi"><i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></span><span class="mt"> In order</span></button>
+        <button id="prev" title="Previous" aria-label="Previous"><i class="fa-solid fa-backward-step" aria-hidden="true"></i></button>
+        <button id="play" class="play" title="Play" aria-label="Play"><i class="fa-solid fa-play" aria-hidden="true"></i></button>
+        <button id="next" title="Next" aria-label="Next"><i class="fa-solid fa-forward-step" aria-hidden="true"></i></button>
+        <button id="fdl" aria-label="Download for offline" title="Download for offline"><i class="fa-solid fa-download" aria-hidden="true"></i></button>
+      </div>
+      <div class="vol">
+        <button id="mute" aria-label="Mute" title="Mute"></button>
+        <input type="range" id="vol" min="0" max="100" value="60" aria-label="Volume">
+      </div>
+    </div>
+  </section>
+
+  <!-- Theme effects layer (filled by js/features/effects.js) -->
+  <div id="fx" aria-hidden="true"></div>
+
+  <!-- Scripts. Keep this order: a file may only use things from the files above it while loading. -->
+  <script src="js/content/quotes.js"></script>
+  <script src="js/core/helpers.js"></script>
+  <script src="js/data/catalog.js"></script>
+  <script src="js/core/state.js"></script>
+  <script src="js/data/playlist-storage.js"></script>
+  <script src="js/audio/engine.js"></script>
+  <script src="js/audio/matching.js"></script>
+  <script src="js/audio/playback.js"></script>
+  <script src="js/audio/volume.js"></script>
+  <script src="js/audio/seek.js"></script>
+  <script src="js/audio/downloads.js"></script>
+  <script src="js/audio/media-session.js"></script>
+  <script src="js/ui/components.js"></script>
+  <script src="js/ui/toast.js"></script>
+  <script src="js/features/likes.js"></script>
+  <script src="js/features/recents.js"></script>
+  <script src="js/features/bhakti.js"></script>
+  <script src="js/features/search.js"></script>
+  <script src="js/features/pages.js"></script>
+  <script src="js/features/banner.js"></script>
+  <script src="js/features/playlist-editor.js"></script>
+  <script src="js/features/playlist-reorder.js"></script>
+  <script src="js/features/effects.js"></script>
+  <script src="js/features/themes.js"></script>
+  <script src="js/features/menus.js"></script>
+  <script src="js/player/ui.js"></script>
+  <script src="js/player/full-player.js"></script>
+  <script src="js/ui/render.js"></script>
+  <script src="js/ui/main-events.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

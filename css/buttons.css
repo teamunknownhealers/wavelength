@@ -1,0 +1,38 @@
+/* Action buttons (Play, Shuffle...) and keyword chips. */
+.bar2 {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.bar2 button {
+  background: var(--raise);
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.bar2 button:hover {
+  filter: brightness(1.2);
+}
+
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 0 8px;
+}
+
+.chip {
+  background: var(--raise);
+  border-radius: 16px;
+  padding: 5px 12px;
+  font-size: 13px;
+  color: var(--mute);
+}
+
+.chip:hover {
+  color: var(--text);
+}

@@ -1,0 +1,52 @@
+/* Phone and small screen changes. Keep this file last (before accessibility). */
+@media (max-width: 760px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 68px 56px;
+  }
+
+  aside {
+    display: none;
+  }
+
+  #tabs {
+    display: flex;
+  }
+
+  .toast {
+    bottom: 150px;
+  }
+
+  .qb {
+    display: none;
+  }
+
+  .hero .art {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hrow {
+    --hp: 16px;
+  }
+
+  main {
+    padding: 16px;
+  }
+
+  .row {
+    grid-template-columns: 28px 1fr 48px auto;
+  }
+
+  .row .al {
+    display: none;
+  }
+
+  .vol {
+    display: none;
+  }
+}

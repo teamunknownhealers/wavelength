@@ -1,0 +1,15 @@
+/* Reduced motion settings. Keep this file last. */
+@media (prefers-reduced-motion: reduce) {
+  #fx {
+    display: none !important;
+  }
+
+  .fctl .play,
+  #mplay {
+    animation: none !important;
+  }
+
+  * {
+    transition: none !important;
+  }
+}

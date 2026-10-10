@@ -1,0 +1,47 @@
+/* Playlist form: text fields, colour swatches and the cover picture editor. */
+.sw {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sw button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  outline: 2px solid transparent;
+}
+
+.sw button.on {
+  outline-color: var(--text);
+}
+
+.cover {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  flex: none;
+}
+
+.crop {
+  width: 240px;
+  height: 240px;
+  max-width: 100%;
+  border-radius: 8px;
+  touch-action: none;
+  cursor: grab;
+  background: var(--raise);
+  flex: none;
+}
+
+.fld {
+  width: 100%;
+  margin-top: 6px;
+  background: var(--raise);
+  border: 0;
+  border-radius: 6px;
+  padding: 10px;
+  color: var(--text);
+  font: inherit;
+}

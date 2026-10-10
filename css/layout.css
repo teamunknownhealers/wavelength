@@ -1,0 +1,25 @@
+/* Page frame: the main grid, the content panel and panel shadows. */
+body {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 1fr 72px;
+  gap: 8px;
+  padding: 8px;
+  padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+  overflow: hidden;
+}
+
+main {
+  background: var(--panel);
+  border-radius: 10px;
+  overflow: auto;
+  padding: 24px;
+  background-image: linear-gradient(to bottom, color-mix(in srgb, var(--hue, #1f3a2a) var(--hm, 100%), var(--panel)) 0, var(--panel) 280px);
+}
+
+aside,
+main,
+footer,
+#tabs {
+  box-shadow: var(--shadow, none);
+}

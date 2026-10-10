@@ -1,0 +1,85 @@
+/* Pop-up menus (three dots, themes) and the small message toast. */
+.menu {
+  position: fixed;
+  z-index: 9;
+  background: var(--raise);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 190px;
+  max-height: 260px;
+  overflow: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .5);
+  opacity: 0;
+  transform: translateY(-6px) scale(.96);
+  transition: opacity .16s ease, transform .16s ease;
+}
+
+.menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 5px;
+}
+
+.menu button:hover {
+  background: rgba(127, 127, 127, .25);
+}
+
+.menu.in {
+  opacity: 1;
+  transform: none;
+}
+
+.menu .mh {
+  display: block;
+  padding: 8px 10px;
+  color: var(--mute);
+  font-size: 12px;
+}
+
+.menu button:focus-visible {
+  background: rgba(127, 127, 127, .25);
+  outline: none;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 96px;
+  transform: translate(-50%, 10px);
+  background: var(--text);
+  color: var(--bg);
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity .2s, transform .2s;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.toast.in {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.menu button[disabled] {
+  opacity: .5;
+  cursor: default;
+}
+
+.menu.tall {
+  max-height: min(70vh, 440px);
+}
+
+.tdot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: -2px;
+  border: 1px solid var(--line);
+}

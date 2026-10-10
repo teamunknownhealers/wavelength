@@ -1,0 +1,14 @@
+/* Colour and effect variables. Edit the default (dark) theme here. */
+:root {
+  --bg: #121212;
+  --panel: #181818;
+  --raise: #242424;
+  --text: #fff;
+  --mute: #a7a7a7;
+  --accent: #1ed760;
+  --hm: 100%;
+  --line: rgba(255, 255, 255, .12);
+  --shadow: none;
+  --bgimg: none;
+  --fa-font: "Font Awesome 6 Free";
+}

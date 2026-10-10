@@ -1,0 +1,98 @@
+{
+ "_readme": "Add one object per song to 'songs'. Required: title. For real audio add 'src' (e.g. audio/my-song.mp3) and 'duration' in seconds. Optional per song: 'album', 'cover' (image path), 'about' (text shown on the song page) and 'tags' (lowercase keywords such as calm, romantic, night; songs that share tags are played together by Keep mood). Optional 'artists' list: name (must match the song's 'artist' exactly), bio, image (path) and colors. 'melody', 'tempo' and 'key' only matter for the generated demo sounds; leave them out for real songs. Keep each 'id' unique and never change it once published. Songs tagged bhakti, devotional, bhajan, aarti or kirtan are the ones shown in Bhakti mode.",
+ "songs": [
+  {
+   "id": "get-through",
+   "title": "Get Through This Hour",
+   "artist": "SUNO",
+   "album": "SUNO",
+   "src": "audio/Get-through.mp3",
+   "duration": 174,
+   "cover": "covers/Get-through.png",
+   "tags": [
+    "hopeful",
+    "encouraging",
+    "reflective",
+    "school",
+    "stress",
+    "teen",
+    "exams",
+    "emotional",
+    "gentle",
+    "uplifting",
+    "self care"
+   ],
+   "about": "Take things one breath at a time."
+  },
+  {
+   "id": "the-space",
+   "title": "The Space I leave",
+   "artist": "SUNO",
+   "album": "SUNO",
+   "src": "audio/The-space.mp3",
+   "duration": 198,
+   "cover": "covers/The-space.png",
+   "tags": [
+    "empowering",
+    "Self-discovery",
+    "reflective",
+    "hopeful",
+    "identity"
+   ],
+   "about": "Choose who you are."
+  }
+ ],
+ "playlists": [
+  {
+   "name": "SUNO",
+   "description": "Slow and soft",
+   "cover": "covers/suno.png",
+   "songs": [
+    "get-through",
+    "the-space"
+   ]
+  }
+ ],
+ "artists": [
+  {
+   "name": "SUNO",
+   "bio": "Sample artist bio. Replace this with a short introduction to the artist.",
+   "colors": [
+    "#7b2ff7",
+    "#f107a3"
+   ]
+  },
+  {
+   "name": "Sol & Sage",
+   "bio": "Sample artist bio. Replace this with a short introduction to the artist.",
+   "colors": [
+    "#f7971e",
+    "#ffd200"
+   ]
+  },
+  {
+   "name": "Marin Bay",
+   "bio": "Sample artist bio. Replace this with a short introduction to the artist.",
+   "colors": [
+    "#00c6ff",
+    "#0072ff"
+   ]
+  },
+  {
+   "name": "Hoshi",
+   "bio": "Sample artist bio. Replace this with a short introduction to the artist.",
+   "colors": [
+    "#ff5e62",
+    "#ff9966"
+   ]
+  },
+  {
+   "name": "The Understory",
+   "bio": "Sample artist bio. Replace this with a short introduction to the artist.",
+   "colors": [
+    "#11998e",
+    "#38ef7d"
+   ]
+  }
+ ]
+}

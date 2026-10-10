@@ -1,0 +1,103 @@
+/* Song rows: list rows, drag handles and row buttons. */
+.row {
+  display: grid;
+  grid-template-columns: 36px 1fr 1fr 48px auto;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.row:hover {
+  background: rgba(127, 127, 127, .18);
+}
+
+.row.now {
+  color: var(--accent);
+}
+
+.row .t {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-width: 0;
+}
+
+.row .art {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  flex: none;
+}
+
+.row small {
+  color: var(--mute);
+  display: block;
+}
+
+.row .n,
+.row .d {
+  color: var(--mute);
+}
+
+.act {
+  display: flex;
+  gap: 2px;
+}
+
+.act button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: var(--mute);
+}
+
+.act button:hover {
+  color: var(--text);
+  background: rgba(127, 127, 127, .25);
+}
+
+.grip {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  color: var(--mute);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+.grip:hover {
+  color: var(--text);
+}
+
+.row.sh {
+  transition: transform .2s ease;
+}
+
+.row.lift {
+  position: relative;
+  z-index: 5;
+  background: var(--raise);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .4);
+  cursor: grabbing;
+}
+
+.lk {
+  cursor: pointer;
+}
+
+.lk:hover {
+  text-decoration: underline;
+}
+
+.lh {
+  color: var(--accent);
+}

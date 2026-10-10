@@ -1,0 +1,57 @@
+/* Quote of the day banner. */
+.qb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  font-size: 14px;
+  background: var(--raise);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  color: var(--text);
+  box-shadow: var(--shadow, none);
+}
+
+.qb.sp {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 26%, var(--raise)), var(--raise));
+}
+
+.qb b {
+  flex: none;
+  color: var(--accent);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.qtext {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 600;
+}
+
+.qin {
+  display: inline-flex;
+  animation: mq linear infinite;
+}
+
+.qi {
+  flex: none;
+  padding-right: 3em;
+}
+
+.qb:hover .qin {
+  animation-play-state: paused;
+}
+
+@keyframes mq {
+  to {
+    transform: translateX(-50%);
+  }
+}

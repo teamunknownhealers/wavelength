@@ -1,0 +1,137 @@
+/* Sidebar, playlist list, bottom tab bar and the top search bar. */
+aside {
+  background: var(--panel);
+  border-radius: 10px;
+  padding: 16px;
+  overflow: auto;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -.5px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.logo i {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--text);
+  display: inline-block;
+}
+
+nav button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 8px;
+  border-radius: 6px;
+  color: var(--mute);
+  font-weight: 700;
+}
+
+nav button.on,
+nav button:hover {
+  color: var(--text);
+}
+
+h4 {
+  margin: 22px 8px 8px;
+  color: var(--mute);
+  font-size: 13px;
+}
+
+.pl {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 6px;
+  width: 100%;
+  text-align: left;
+}
+
+.pl:hover {
+  background: var(--raise);
+}
+
+.pl .art {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  flex: none;
+}
+
+.pl small {
+  display: block;
+  color: var(--mute);
+}
+
+.top {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.top input {
+  flex: 1;
+  max-width: 420px;
+  background: var(--raise);
+  border: 0;
+  border-radius: 24px;
+  padding: 11px 18px;
+  color: var(--text);
+  font: inherit;
+}
+
+.top button {
+  background: var(--raise);
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.top #back,
+.top #homebtn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 17px;
+  flex: none;
+}
+
+#tabs {
+  display: none;
+  background: var(--panel);
+  border-radius: 10px;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+#tabs button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--mute);
+}
+
+#tabs button span {
+  font-size: 18px;
+  line-height: 1;
+}
+
+#tabs button.on {
+  color: var(--accent);
+}
